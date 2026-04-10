@@ -1,98 +1,244 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🛒 E-Commerce Backend API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Bu proje, NestJS kullanılarak geliştirilmiş bir e-ticaret backend uygulamasıdır.
+Ürün yönetimi, sepet işlemleri, kullanıcı kimlik doğrulama (JWT) ve sipariş oluşturma gibi temel e-ticaret işlevlerini içerir.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 🚀 Kullanılan Teknolojiler
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+* **NestJS** – Backend framework
+* **TypeScript** – Programlama dili
+* **PostgreSQL** – Veritabanı
+* **Prisma ORM** – Veritabanı yönetimi
+* **JWT (JSON Web Token)** – Authentication
+* **Swagger (OpenAPI)** – API dokümantasyonu
+* **Class-validator** – DTO validation
 
-## Project setup
+---
 
-```bash
-$ npm install
+## 📦 Özellikler
+
+### ✅ Ürün Yönetimi
+
+* Ürün oluşturma
+* Ürün listeleme
+* Ürün detay görüntüleme
+
+### 🛒 Sepet Yönetimi
+
+* Sepete ürün ekleme
+* Sepetten ürün çıkarma
+* Ürün adedi güncelleme
+* Sepeti görüntüleme
+
+### 🔐 Authentication (JWT)
+
+* Kullanıcı kayıt (register)
+* Kullanıcı giriş (login)
+* Token ile korunan endpointler
+
+### 📦 Sipariş Yönetimi (Bonus)
+
+* Sepeti siparişe dönüştürme (checkout)
+* Sipariş toplam tutar hesaplama
+* Stok güncelleme
+* Sepeti temizleme
+* Sipariş listeleme
+* Sipariş detay görüntüleme
+
+---
+
+## 🧪 API Dokümantasyonu
+
+Swagger UI:
+
+```
+http://localhost:3000/api/docs
 ```
 
-## Compile and run the project
+---
+
+## ⚙️ Kurulum
+
+### 1. Projeyi klonla
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone https://github.com/kullanici-adi/repo-adi.git
+cd repo-adi
 ```
 
-## Run tests
+### 2. Paketleri yükle
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Deployment
+---
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## 🔑 Environment Variables
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Proje kök dizinine `.env` dosyası oluştur:
+
+```env
+DATABASE_URL="postgresql://USER:PASSWORD@localhost:5432/DB_NAME"
+JWT_SECRET="supersecretkey"
+JWT_EXPIRES_IN="1d"
+PORT=3000
+```
+
+---
+
+## 🗄️ Veritabanı Kurulumu
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npx prisma generate
+npx prisma migrate dev
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+---
 
-## Resources
+## ▶️ Uygulamayı Çalıştır
 
-Check out a few resources that may come in handy when working with NestJS:
+```bash
+npm run start:dev
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+---
 
-## Support
+## 🔍 Prisma Studio (Veritabanı UI)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+npx prisma studio
+```
 
-## Stay in touch
+```
+http://localhost:5555
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+---
 
-## License
+## 🔐 Authentication Kullanımı
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### Register
+
+```
+POST /api/auth/register
+```
+
+### Login
+
+```
+POST /api/auth/login
+```
+
+Response:
+
+```json
+{
+  "accessToken": "..."
+}
+```
+
+---
+
+### Swagger’da Token Kullanımı
+
+1. Swagger aç
+2. Sağ üstte **Authorize** butonuna bas
+3. Şunu gir:
+
+```
+Bearer TOKEN
+```
+
+---
+
+## 🛒 Order (Checkout) Akışı
+
+1. Ürün oluştur
+2. Sepete ürün ekle
+3. Login ol ve token al
+4. `Authorize` ile token gir
+5. Checkout yap:
+
+```
+POST /api/orders/checkout
+```
+
+### Checkout sonucu:
+
+* Sipariş oluşturulur
+* Toplam tutar hesaplanır
+* Stok düşürülür
+* Sepet temizlenir
+
+---
+
+## ⚠️ Hata Yönetimi
+
+Global exception filter ile tüm hatalar standart formatta döndürülür:
+
+```json
+{
+  "success": false,
+  "statusCode": 400,
+  "message": "Error message",
+  "path": "/api/endpoint",
+  "timestamp": "..."
+}
+```
+
+---
+
+## 📊 Logging
+
+Tüm requestler middleware ile loglanır:
+
+```
+GET /api/products 200 - 12ms
+POST /api/cart/items 201 - 8ms
+```
+
+---
+
+## 🧠 Varsayımlar
+
+* Her kullanıcı için tek sepet bulunmaktadır
+* Checkout sırasında stok kontrolü yapılır
+* Kullanıcı auth sistemi basit tutulmuştur (role-based değil)
+* Siparişler “CREATED” status ile başlar
+
+---
+
+## ⭐ Bonus Özellikler
+
+* JWT Authentication
+* Protected endpointler
+* Order & Checkout sistemi
+* Stock management
+* Cart temizleme
+* Global error handling
+* Request logging
+
+---
+
+## 🏁 Sonuç
+
+Bu proje:
+
+* Modüler yapı
+* Temiz kod prensipleri
+* RESTful API standartları
+* Güvenli authentication
+* Gerçek e-ticaret akışı
+
+göz önünde bulundurularak geliştirilmiştir.
+
+---
+
+## 👤 Geliştirici
+
+**Satı İlayda Öncül**
+
+---
